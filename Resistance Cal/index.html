@@ -1,0 +1,172 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Resistance Calculator</title>
+ 
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+    <div class="container-1">
+        <section id="heading2">
+        <h2>Calculate Resistance</h2>
+        <img src="resistor2.png" class="resistor2" width="56px">
+        <p></p>
+        <h3 id="hide">Select colours to find your Resistance... </h3>
+        <p></p>
+        </section>
+        <p></p>
+        <section>
+          
+            <p></p>
+            <p></p>
+            </section>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <section class="lines">
+            <div class="lineColor">
+                <select id="leftline">
+                    <option value="0" class="black colorSelect">black</option>
+                    <option value="1" class="brown colorSelect">brown</option>
+                    <option value="2" class="red colorSelect">red</option>
+                    <option value="3" class="orange colorSelect">orange</option>
+                    <option value="4" class="yellow colorSelect">yellow</option>
+                    <option value="5" class="green colorSelect">green</option>
+                    <option value="6" class="blue colorSelect">blue</option>
+                    <option value="7" class="violet colorSelect">violet</option>
+                    <option value="8" class="grey colorSelect">grey</option>
+                    <option value="9" class="white colorSelect" >white</option>
+                </select>
+
+                <div class ="color-box" id= "box1">  
+                </div>
+
+            </div>
+
+            <div class="lineColor">
+                <select id="middleline">
+                    <option value="0" class="black colorSelect">black</option>
+                    <option value="1" class="brown colorSelect">brown</option>
+                    <option value="2" class="red colorSelect">red</option>
+                    <option value="3" class="orange colorSelect">orange</option>
+                    <option value="4" class="yellow colorSelect">yellow</option>
+                    <option value="5" class="green colorSelect">green</option>
+                    <option value="6" class="blue colorSelect">blue</option>
+                    <option value="7" class="violet colorSelect">violet</option>
+                    <option value="8" class="grey colorSelect">grey</option>
+                    <option value="9" class="white colorSelect">white</option>
+                </select>
+
+                <div class ="color-box" id= "box2">  
+                </div>
+
+            </div>
+
+            <div class="lineColor">
+                <select id="rightline">
+                    <option value="1" class="black colorSelect">black</option>
+                    <option value="10" class="brown colorSelect">brown</option>
+                    <option value="100" class="red colorSelect">red</option>
+                    <option value="1000" class="orange colorSelect">orange</option>
+                    <option value="10000" class="yellow colorSelect">yellow</option>
+                    <option value="100000" class="green colorSelect">green</option>
+                    <option value="1000000" class="blue colorSelect">blue</option>
+                    <option value="10000000" class="violet colorSelect">violet</option>
+                    <option value="100000000" class="grey colorSelect">grey</option>
+                    <option value="1000000000" class="white colorSelect">white</option>
+                </select>
+
+                <div class ="color-box" id= "box3">  
+                </div>
+
+
+            </div>
+
+
+        </section>
+        <p></p>
+        <p></p>
+        
+        <div id="container"></div> 
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script> 
+        <script> 
+        var paper = Raphael("container", 500, 200); 
+        var dot = paper.circle(250, 75, 30).attr({
+        gradient: '90-#000-#FF0000',
+        stroke: '#000',
+        'stroke-width': 3,
+        'stroke-linejoin': 'round',
+        rotation: -120
+        });
+
+        </script> 
+
+        <br>
+        <p></p>
+        <p></p>
+        <section class="final">
+            <div class="find found">
+            <h3>R= <span id="resistance"></span>Ω</h3>
+                </div>
+               
+        </section>
+        <br>
+        <br>
+        
+       
+        <p> </p>
+
+        <div class="flex-box-container-1">
+        <button id = "start" class="btn btn-primary mr-5" onclick="changeColor()">Calculate</button> 
+        <button class="btn btn-danger" onclick="location.reload()">Reset</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        document.getElementById('leftline').onchange = function(){
+            //console.log('hii');
+                const left = document.getElementById("leftline");
+                const Lvalue = left.options[left.selectedIndex].text;
+            
+                
+                document.getElementById("box1").style.backgroundColor = Lvalue;
+                document.getElementById("color-strip1").style.color=Lvalue;
+               // document.getElementById("color-strip1").style.opacity="80%";
+        
+        }
+
+        document.getElementById('middleline').onchange = function(){
+         
+               
+                const mid = document.getElementById("middleline");
+                const Mvalue = mid.options[mid.selectedIndex].text;
+           
+        
+                document.getElementById("box2").style.backgroundColor = Mvalue;
+                document.getElementById("color-strip2").style.color=Mvalue;
+                //document.getElementById("color-strip2").style.opacity="80%"
+        
+        }
+
+        document.getElementById('rightline').onchange = function(){
+          
+                const right = document.getElementById("rightline");
+                const Rvalue = right.options[right.selectedIndex].text;
+                
+                document.getElementById("box3").style.backgroundColor = Rvalue;
+                document.getElementById("color-strip3").style.color=Rvalue;
+               // document.getElementById("color-strip3").style.opacity="80%"
+        
+        }
+    </script>
+
+</body>
+</html>
