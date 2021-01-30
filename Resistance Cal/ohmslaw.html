@@ -16,9 +16,9 @@
 
         </div>
       
-        
-            <div style="width: 50%; float:left">
-                #left content in here
+        <div class="flex-"
+            <div class="leftbox">
+               
 
                 
                     <section class="inputsec">
@@ -55,14 +55,13 @@
             
             </div>
          
-            <div style="width: 50%; float:right">
-                #right content in there
+            <div class="rightbox">
 
                     
                 <p></p>
-                <button class="btn btn-success mr-2">Calculate</button>
+                <button class="btn btn-success mr-3" id="Calculate">Calculate</button>
 
-                <button class="btn btn-danger">Reset</button>
+                <button class="btn btn-danger" id="reset">Reset</button>
 
             
             </div>
@@ -96,18 +95,24 @@
 
 }
 
+.leftbox,.rightbox{
+    display: flex;
+    padding: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+
+
+}
+
 .column{
    
     margin-bottom: -50px;
     left: 20%;
 }
 
-.inputsec{
-    align-content: stretch;
-    width: 50%;
-    
 
-}
 
 
 </style>
@@ -116,7 +121,57 @@
 
 <script type="text/javascript">
     
+        document.getElementById("Calculate").onclick=function(){
+        var v1=document.getElementById("voltage").value;
+        console.log(v1);
+        
+        var a1=document.getElementById("current").value;
+        console.log(a1);
 
+        var o1=document.getElementById("resistance").value;
+        console.log(o1);
+       
+        var w1=document.getElementById("power").value;
+        console.log(w1);
+
+
+        if (a1 && o1){w1=Math.pow(a1, 2)*o1; v1=o1*a1;}
+          else if (a1 && v1){w1=a1*v1; o1=v1/a1;}
+          else if (v1 && o1){w1=Math.pow(v1, 2)/o1; a1=v1/o1;}
+          else if (w1 && a1){v1=w1/a1; o1=w1/Math.pow(a1,2);}
+          else if (w1 && v1){a1=w1/v1; o1=Math.pow(v1,2)/w1;}
+          else if (a1 && v1){w1=v1*a1; o1=v1/a1;}
+         else if (w1 && o1){v1=Math.sqrt(w1*o1); a1=Math.sqrt(w1/o1);}
+
+
+
+         console.log(v1);
+         document.getElementById("voltage").value=v1;
+         document.getElementById("current").value=a1;
+         document.getElementById("resistance").value=o1;
+         document.getElementById("power").value=w1;
+       
+
+    }
+
+    document.getElementById("reset").onclick=function(){
+        window.location.reload();
+    }
+    
+
+
+        //  var v1=d.volts.value; 
+        //  var o1=d.ohms.value; 
+        //  var a1=d.amps.value; 
+        //  var w1=d.watts.value;
+
+        //  
+      
+         
+         //d.amps.value=a1; d.volts.value=v1; d.watts.value=w1; d.ohms.value=o1;
+         v1=o1=a1=w1=0;
+         //document.f1.reset.focus();
+         
   
 
 

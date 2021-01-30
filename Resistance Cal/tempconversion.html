@@ -1,0 +1,258 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Ohm's Law</title>
+</head>
+<body>
+    <div class="container-1">
+        <h2>Temperature Converter</h2> 
+        <p>Used to convert temperature readings.</p>
+        <br>
+        <br>
+
+
+        <div>
+            
+
+        </div>
+      
+        <div class="flex">
+            <table style="width:80%" id="tab01">
+                <tr>
+                  
+                </tr>
+                <tr>
+                  <td>
+                      <p></p>
+                    <h5>Celsius(°C)</h5>
+                    <span class="input-label" title="celsius">°C</span>
+                    <input placeholder="Enter Celsius..." name="celsius" id="celsius" type="number">
+                    <p></p>
+        
+                
+                    </td>
+
+                  <td><p>Celsius to Fahrenheit Conversion</p>
+                    <p class="equation">°F = °C x 9/5 + 32 </p>
+
+
+                  </td>
+                
+                </tr>
+
+                <tr>
+                  <td>
+                    <h5>Fahrenheit(°F)</h5>
+                    <span class="input-label" title="fahrenheit">°F</span>
+                    <input placeholder="Enter Fahrenheit..." name="fahrenheit" id="fahrenheit" type="number">
+                    <p></p>
+        
+               
+                    </td>
+                  <td><p>Celsius to Kelvin Conversion</p>
+                    <p class="equation">K = °C + 273.15 </p>
+                </td>
+                  
+                </tr>
+                <tr>
+                  <td> 
+                    <h5>Kelvin(K)</h5>
+                    <span class="input-label" title="Kelvin">K</span>
+                    <input placeholder="Enter Kelvin..." name="Kelvin" id="Kelvin" type="number">
+                    <p></p>
+        
+               </td>
+                  <td><p>Celsius to Rankine Conversion</p>
+                    <p class="equation">°R = °C x 9/5 + 491.67  </p>
+                
+                </td>
+            
+                </tr>
+                <tr>
+                    <td>
+                      
+                            <h5>Rankine(°R)</h5>
+                            <span class="input-label" title="Rankine">°R</span>
+                            <input placeholder="Enter Rankine..." name="Rankine" id="Rankine" type="number">
+                            <p></p>
+                
+                      </td>
+                    <td>
+                        <p>Fahrenheit to Celsius Conversion</p>
+                        <p class="equation">°C = (°F-32) x 5/9</p>
+                    </td>
+                   
+                  </tr>
+
+                  <tr>
+                    <td>   
+
+                    <button class="btn btn-primary ml-5 mb-5" id="Calculate">Calculate</button></td>
+                    <td><p>Fahrenheit to Kelvin Conversion</p>
+                        <p class="equation">K = (°F + 459.67) x 5/9</p>
+                    </td>
+
+
+                  </tr>
+
+                  
+                  <tr>
+                    <td>   
+
+                    <td><p>Fahrenheit to Rankine Conversion</p>
+                        <p class="equation">°R = °F + 459.67</p>
+                    </td>
+
+
+                  </tr>
+              </table>
+          
+               
+               
+                
+                    
+            
+                    
+            
+                  
+            
+            
+          
+                    
+                    
+                <p></p>
+               
+          
+                </div>
+               
+
+            
+        
+
+    </div>
+
+
+   
+
+
+</body>
+
+
+<style>
+.container-1,.container-2 {
+    border: 1px solid black;
+    width: 80%;
+    margin: 1 auto;
+    text-align: center;
+    justify-content:center;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+}
+
+td{
+    padding-left: 90px;
+    padding-top: 20px;
+    justify-content: center;
+    text-align: left;
+    
+  
+}
+#tab01{
+    background-color: rgb(250, 218, 177);
+    align-items: center;
+    text-align: center;
+    margin-left: 120px;
+
+}
+
+.inputsec,.rightbox{
+    display: flex;
+    padding: 30px;
+  
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+    margin-left: 20px;
+
+
+}
+
+
+
+
+
+
+</style>
+
+
+
+<script type="text/javascript">
+    
+        document.getElementById("Calculate").onclick=function(){
+        var v1=document.getElementById("voltage").value;
+        console.log(v1);
+        
+        var a1=document.getElementById("current").value;
+        console.log(a1);
+
+        var o1=document.getElementById("resistance").value;
+        console.log(o1);
+       
+        var w1=document.getElementById("power").value;
+        console.log(w1);
+
+
+        if (a1 && o1){w1=Math.pow(a1, 2)*o1; v1=o1*a1;}
+          else if (a1 && v1){w1=a1*v1; o1=v1/a1;}
+          else if (v1 && o1){w1=Math.pow(v1, 2)/o1; a1=v1/o1;}
+          else if (w1 && a1){v1=w1/a1; o1=w1/Math.pow(a1,2);}
+          else if (w1 && v1){a1=w1/v1; o1=Math.pow(v1,2)/w1;}
+          else if (a1 && v1){w1=v1*a1; o1=v1/a1;}
+         else if (w1 && o1){v1=Math.sqrt(w1*o1); a1=Math.sqrt(w1/o1);}
+
+
+
+         console.log(v1);
+         document.getElementById("voltage").value=v1;
+         document.getElementById("current").value=a1;
+         document.getElementById("resistance").value=o1;
+         document.getElementById("power").value=w1;
+       
+
+    }
+
+    document.getElementById("reset").onclick=function(){
+        window.location.reload();
+    }
+    
+
+
+        //  var v1=d.volts.value; 
+        //  var o1=d.ohms.value; 
+        //  var a1=d.amps.value; 
+        //  var w1=d.watts.value;
+
+        //  
+      
+         
+         //d.amps.value=a1; d.volts.value=v1; d.watts.value=w1; d.ohms.value=o1;
+         v1=o1=a1=w1=0;
+         //document.f1.reset.focus();
+         
+  
+
+
+    </script>
+
+
+  
+
+
+
+
+</html>
